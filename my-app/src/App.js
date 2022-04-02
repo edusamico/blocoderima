@@ -9,7 +9,7 @@ const App = () => {
         <Bloco/>
       </div>
     ); 
-
+    
 }
 
 export default App;
