@@ -1,2 +1,2 @@
 # blocoderima
-um site react para fazer rima.
+um site react para fazer rimas.
