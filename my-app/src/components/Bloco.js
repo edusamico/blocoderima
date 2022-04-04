@@ -53,10 +53,10 @@ export default class Bloco extends Component {
             this.setState({
                 textCount: <ul>
                     <h3><b>OPS! Tente novamente!</b></h3>
-                    <li>Não encontramos nenhuma rima para a <b>ÚLTIMA PALAVRA digitada da ÚLTIMA LINHA;</b></li>
+                    <li>Não encontramos nenhuma rima para a <b>ÚLTIMA PALAVRA DA ÚLTIMA LINHA;</b></li>
                     <li>Tente palavras com mais de 2 letras;</li>
-                    <li>Confira se você <b>pulou uma linha com o "Enter"</b>, pois isso deixa a linha fica vazia <b>e nenhuma palavra é consultada;</b></li>
-                    <li><b>Continue usando! Em breve não precisará desses cuidados.</b></li>
+                    <li>Confira se você <b>pulou uma linha com o "Enter"</b>, pois isso deixa a linha vazia <b>e nenhuma palavra é consultada;</b></li>
+                    <li><b>Continue usando!</b> Em breve não precisará desses cuidados e as rimas serão mais qualificadas.</li>
                     
                 </ul>
             })

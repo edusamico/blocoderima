@@ -17,6 +17,7 @@ textarea {
 }
 
 input[type="button"] {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 10px;
     max-width: 300px;
     min-width: 300px;
