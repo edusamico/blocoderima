@@ -38,6 +38,7 @@ export default class Bloco extends Component {
             wordSuffix = lastWord;
         }
         else {
+            alert("A palavra precisa ter mais de 2 letras. Tente novamente.")
             return;
         }
 
