@@ -2,6 +2,7 @@ import './Bloco.css'
 import React, { Component } from "react"
 import Button from '../Button/Button';
 import Rimas from '../Rimas/Rimas';
+import { api } from '../Service/api';
 
 
 export default class Bloco extends Component {
@@ -41,10 +42,7 @@ export default class Bloco extends Component {
             alert("A palavra precisa ter mais de 2 letras. Tente novamente.")
             return;
         }
-
-        let url = 'https://api.dicionario-aberto.net/suffix/' + wordSuffix;
-        let req = await fetch(url);
-        let json = await req.json();
+        let json = await api.getSuffixRimas(wordSuffix);
         this.setState({ suffixRimas: json });
 
 
