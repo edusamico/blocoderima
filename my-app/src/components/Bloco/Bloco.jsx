@@ -2,7 +2,7 @@ import './Bloco.css'
 import React, { Component } from "react"
 import Button from '../Button/Button';
 import Rimas from '../Rimas/Rimas';
-import { api } from '../Service/api';
+import { api } from '../../Service/api';
 
 
 export default class Bloco extends Component {
@@ -13,7 +13,7 @@ export default class Bloco extends Component {
             suffixRimas: [],
             textArea: "",
             textCount: "",
-
+            loading: false
         }
         this.findRimas = this.findRimas.bind(this);
     }
@@ -42,17 +42,20 @@ export default class Bloco extends Component {
             alert("A palavra precisa ter mais de 2 letras. Tente novamente.")
             return;
         }
+        this.setState({loading: true})
         let json = await api.getSuffixRimas(wordSuffix);
+        this.setState({loading: false})
         this.setState({ suffixRimas: json });
 
 
     }
 
     handleClick = () => {this.findRimas()};
-    handleOnChange = (event) => { this.setState({ textArea: event.target.value }) }
-
+    handleOnChange = (event) => { this.setState({ textArea: event.target.value }) };
+    
     render() {
-        
+        let loading = (this.state.loading) ? true : false;
+        let showRimas = (this.state.lastWord) ? true : false;    
         let suffixRimas = this.state.suffixRimas;
 
         return (
@@ -64,7 +67,10 @@ export default class Bloco extends Component {
                     <textarea placeholder="Faça a sua rima aqui" onChange={this.handleOnChange}></textarea>
                     
                     <Button onClick={(this.handleClick)} textArea={"Buscar"}/>
-                    <Rimas suffixRimas={suffixRimas}/>
+                    {loading && "Carregando..."}
+                    {!loading && showRimas && <Rimas suffixRimas={suffixRimas}/>}
+                    
+                    
                     
 
                 </div>

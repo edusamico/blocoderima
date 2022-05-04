@@ -15,8 +15,8 @@ const Rimas = ({ suffixRimas }) => {
     <div>
       <h2>Rimas</h2>
       {count && <p>Encontramos {filterRimas.length} possíveis rimas!</p>}
-      {!count && <p>Não encontramos nenhuma rima para a sua palavra, tente outras!</p>}
-    
+      {!count && <p>Não encontramos nenhuma rima para a última palavra, tente novamente!</p>}
+     
       
       <div>
         <ol className='rimas'>
