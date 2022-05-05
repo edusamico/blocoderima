@@ -6,7 +6,9 @@ const Rimas = ({ suffixRimas }) => {
     rimas.push(rima);
   }
 
-  let filterRimas = [...new Set(rimas)]
+  let filterRimas = [...new Set(rimas)];
+
+  //let filterToSyllables = (word) => {}
 
   let count = false;
   count = (filterRimas.length !== 0) ? true : false;
@@ -15,9 +17,9 @@ const Rimas = ({ suffixRimas }) => {
     <div>
       <h2>Rimas</h2>
       {count && <p>Encontramos {filterRimas.length} possíveis rimas!</p>}
-      {!count && <p>Não encontramos nenhuma rima para a sua palavra, tente outras!</p>}
-    
-      
+      {!count && <p>Tente com outra palavra!</p>}
+     
+
       <div>
         <ol className='rimas'>
           {filterRimas.map(filterRimas => (
