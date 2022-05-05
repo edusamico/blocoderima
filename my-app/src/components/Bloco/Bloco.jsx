@@ -66,10 +66,12 @@ export default class Bloco extends Component {
                     </h2>
                     <textarea placeholder="Faça a sua rima aqui" onChange={this.handleOnChange}></textarea>
                     
-                    <Button onClick={(this.handleClick)} textArea={"Buscar"}/>
-                    {loading && "Carregando..."}
+                    <Button 
+                        onClick={(this.handleClick)} 
+                        textArea={(loading) ? "Carregando...":"Buscar"}
+                    />
+
                     {!loading && showRimas && <Rimas suffixRimas={suffixRimas}/>}
-                    
                     
                     
 
