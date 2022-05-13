@@ -1,7 +1,7 @@
 
 const Rimas = ({ suffixRimas }) => {
-  
-// taking only unique words of object
+
+  // taking only unique words of object
   let rimas = [];
   for (let i in suffixRimas) {
     let rima = suffixRimas[i].word;
@@ -10,7 +10,7 @@ const Rimas = ({ suffixRimas }) => {
 
   let filterRimas = [...new Set(rimas)];
 
-// counting vowels 
+  // counting vowels 
   const filterToSyllables = (word) => {
     let countVowels = 0;
     const wordArr = word.split("");
@@ -21,42 +21,36 @@ const Rimas = ({ suffixRimas }) => {
       "ã", "õ"]
 
     for (let letter of wordArr) {
-      for(let vowel of vowels) {
+      for (let vowel of vowels) {
         if (letter === vowel) {
           countVowels++;
         }
-      } 
-    }   
-    return countVowels; 
+      }
+    }
+    return countVowels;
   }
-// creating lists by nSyll
-  for (let word of filterRimas) {
-    let nSyll = filterToSyllables(word);
-    console.log(`a palavra ${word} tem ${nSyll} sílabas`)
-    let arrWordSyll = [];
-  }
-
-
-//preparing to show
+  
+  //preparing to show
   let toShow = false;
   toShow = (filterRimas.length !== 0) ? true : false;
 
   return (
     <div>
+
       <h2>Rimas</h2>
+
       {toShow && <p>Encontramos {filterRimas.length} possíveis rimas!</p>}
       {!toShow && <p>Tente com outra palavra!</p>}
 
       <div>
+
         <ol className='rimas'>
-          <h3>Número de sílabas</h3>
-          {filterRimas.map(filterRimas => (
-            <li className='rima' key={filterRimas}>{filterRimas}</li>
+          {filterRimas.map(word => (
+            <li className='rima' key={word}>{word} - {filterToSyllables(word)} sílabas</li>
           ))}
         </ol>
       </div>
     </div>
-
   )
 }
 export default Rimas
